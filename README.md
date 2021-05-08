@@ -8,19 +8,20 @@
 1.
 
 ## How to install
+
 **locally (dev mode)**
 ```shell
-python3 -m pip install -e <path>
+python3 -m pip install -e <path-to-lib>
 ```
 
 **from github**
 ```shell
-pip3 install git+https://github.com/user_name/rep_name.git@master
+pip3 install git+https://github.com/wksmirnowa/badd.git@master
 ```
 
 **from pip**
 ```shell
-pip3 install lib_name
+pip3 install badd
 ```
 
 ## Usage
