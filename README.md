@@ -159,7 +159,7 @@ Predict probability for text
 toxic_detector.predict_probability(text)
 ```
 
-Check whether a text is toxc
+Check whether a text is toxic
 
 ```python3
 toxic_detector.is_toxic(text)
