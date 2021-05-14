@@ -2,6 +2,7 @@ from badd.file_loader.file_loader import FileLoader
 from badd.obscene.obscene_model import ObsceneModel
 
 import torch
+from pymorphy2 import MorphAnalyzer
 from nltk.tokenize import WordPunctTokenizer
 
 
@@ -18,6 +19,7 @@ class ObsceneDetector:
                                   linear_size_1=254,
                                   linear_size_2=128)
         self._tokenizer = WordPunctTokenizer().tokenize
+        self.morph = MorphAnalyzer()
         self.obscene_words = []
         self.__load_model()
 
@@ -36,6 +38,7 @@ class ObsceneDetector:
             return 0.0
 
     def __get_tensor_index(self, word):
+        word = self.morph.parse(word)[0].normal_form
         index = self._vocab[word] if word in self._vocab else 0
         tensor_index = torch.tensor(index)
         return torch.unsqueeze(tensor_index, 0)

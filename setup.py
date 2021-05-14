@@ -16,6 +16,7 @@ setup(name='badd',
       install_requires=['gensim==3.8.1',
                         'torch==1.8.1',
                         'nltk==3.2.5',
-                        'emoji==1.2.0'],
-      keywords='toxic ad advertising obscene classification texts words nlp'
+                        'emoji==1.2.0',
+                        'pymorphy2==0.9.1'],
+      keywords='toxic ad advertising obscene classification texts words nlp nn'
       )
