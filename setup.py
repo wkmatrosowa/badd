@@ -1,13 +1,14 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 with open('README.md', 'r') as f:
     readme = f.read()
 
 setup(name='badd',
       description='In English',
+      packages=find_packages(include=['badd']),
       long_description=readme,
       long_description_content_type='text/markdown',
-      url='https://github.com/',
+      url='https://github.com/wksmirnowa/badd',
       author='Vladislava Smirnova',
       author_email='wksmirnowa@gmail.com',
       license='MIT',
