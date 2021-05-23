@@ -1,5 +1,5 @@
 from .file_loader import FileLoader
-from .ad.ad_model import AdModel
+from .ad_model import AdModel
 
 import re
 import torch

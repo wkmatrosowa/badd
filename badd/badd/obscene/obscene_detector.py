@@ -1,5 +1,5 @@
 from .file_loader import FileLoader
-from .obscene.obscene_model import ObsceneModel
+from .obscene_model import ObsceneModel
 
 import torch
 from pymorphy2 import MorphAnalyzer
