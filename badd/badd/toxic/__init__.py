@@ -1,1 +1,1 @@
-from badd.badd.toxic.toxic_detector import ToxicDetector
+from .toxic_detector import ToxicDetector

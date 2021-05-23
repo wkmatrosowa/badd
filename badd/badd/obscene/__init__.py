@@ -1,1 +1,1 @@
-from badd.badd.obscene.obscene_detector import ObsceneDetector
+from .obscene_detector import ObsceneDetector
