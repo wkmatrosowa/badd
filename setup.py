@@ -5,7 +5,8 @@ with open('README.md', 'r') as f:
 
 setup(name='badd',
       description='In English',
-      packages=find_packages(include=['badd']),
+      package_dir={"": "src"},
+      packages=find_packages(where="src"),
       long_description=readme,
       long_description_content_type='text/markdown',
       url='https://github.com/wksmirnowa/badd',

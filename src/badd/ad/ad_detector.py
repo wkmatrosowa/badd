@@ -1,13 +1,13 @@
-from badd.file_loader.file_loader import FileLoader
-from badd.toxic.toxic_model import ToxicModel
+from src.badd.file_loader.file_loader import FileLoader
+from src.badd.ad.ad_model import AdModel
 
+import re
 import torch
 import emoji
-import re
 from nltk.tokenize import WordPunctTokenizer
 
 
-class ToxicDetector:
+class AdDetector:
 
     def __init__(self, vocab_path, fasttext_path, model_path, device):
         self._file_loader = FileLoader()
@@ -15,11 +15,12 @@ class ToxicDetector:
         self._embeddings = self._file_loader.load_fasttext(fasttext_path)
         self._model_path = model_path
         self._device = device
-        self._model = ToxicModel(embeddings=self._embeddings,
-                                num_classes=1,
-                                embedding_dim=300,
-                                hidden_dim=254,
-                                num_lstm_layers=8)
+        self._model = AdModel(embeddings=self._embeddings,
+                             num_classes=1,
+                             embedding_dim=300,
+                             hidden_dim=254,
+                             num_lstm_layers=8)
+
         self._tokenizer = WordPunctTokenizer().tokenize
         self._max_len = 30
         self.__load_model()
@@ -32,6 +33,12 @@ class ToxicDetector:
         self._model.to(self._device)
         self._model.eval()
 
+    def __binarize(self, pred):
+        if pred > 0.5:
+            return 1.
+        else:
+            return 0.
+
     def __tokenization(self, text):
         result = []
         sentence = self._tokenizer(text)
@@ -41,12 +48,6 @@ class ToxicDetector:
             if detext:
                 result.append(detext)
         return result
-
-    def __binarize(self, pred):
-        if pred > 0.5:
-            return 1.0
-        else:
-            return 0.0
 
     def __get_tensor_indeces(self, text):
         tokenized_text = self.__tokenization(text.lower())
@@ -71,7 +72,7 @@ class ToxicDetector:
             pred = torch.sigmoid(pred).cpu().numpy()[0][0]
             return pred
 
-    def is_toxic(self, text):
+    def is_ad(self, text):
         pred = self.predict_text(text)
         if pred == 1.0:
             return True
