@@ -1,12 +1,11 @@
 from .ad_model import AdModel
+from ..file_loader import FileLoader
 
-from .. import FileLoader
 
 import re
 import torch
 import emoji
 from nltk.tokenize import WordPunctTokenizer
-
 
 class AdDetector:
 

@@ -1,5 +1,5 @@
 from .obscene_model import ObsceneModel
-from .. import FileLoader
+from ..file_loader import FileLoader
 
 import torch
 from pymorphy2 import MorphAnalyzer
@@ -15,9 +15,9 @@ class ObsceneDetector:
         self._model_path = model_path
         self._device = device
         self._model = ObsceneModel(embeddings=self._embeddings,
-                                  num_classes=1,
-                                  linear_size_1=254,
-                                  linear_size_2=128)
+                                   num_classes=1,
+                                   linear_size_1=254,
+                                   linear_size_2=128)
         self._tokenizer = WordPunctTokenizer().tokenize
         self.morph = MorphAnalyzer()
         self.obscene_words = []

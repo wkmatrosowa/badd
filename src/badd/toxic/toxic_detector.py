@@ -1,5 +1,5 @@
 from .toxic_model import ToxicModel
-from .. import FileLoader
+from ..file_loader import FileLoader
 
 import torch
 import emoji
