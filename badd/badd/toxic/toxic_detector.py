@@ -1,5 +1,5 @@
-from badd.badd.file_loader.file_loader import FileLoader
-from badd.badd.toxic.toxic_model import ToxicModel
+from badd.file_loader.file_loader import FileLoader
+from badd.toxic.toxic_model import ToxicModel
 
 import torch
 import emoji

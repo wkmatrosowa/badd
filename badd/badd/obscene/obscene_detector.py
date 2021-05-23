@@ -1,5 +1,5 @@
-from badd.badd.file_loader.file_loader import FileLoader
-from badd.badd.obscene.obscene_model import ObsceneModel
+from badd.file_loader.file_loader import FileLoader
+from badd.obscene.obscene_model import ObsceneModel
 
 import torch
 from pymorphy2 import MorphAnalyzer

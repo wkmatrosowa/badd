@@ -1,5 +1,5 @@
-from badd.badd.file_loader.file_loader import FileLoader
-from badd.badd.ad.ad_model import AdModel
+from badd.file_loader.file_loader import FileLoader
+from badd.ad.ad_model import AdModel
 
 import re
 import torch
