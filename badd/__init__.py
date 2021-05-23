@@ -5,5 +5,5 @@ from .badd import ToxicDetector, AdDetector, ObsceneDetector
 __all__ = [
     'ToxicDetector',
     'AdDetector',
-    'ObsceneDetector'
+    'ObsceneDetector',
 ]
