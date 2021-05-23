@@ -1,4 +1,4 @@
-from .file_loader.file_loader import FileLoader
+from .file_loader import FileLoader
 from .ad.ad_model import AdModel
 
 import re

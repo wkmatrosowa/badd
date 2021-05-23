@@ -1,4 +1,4 @@
-from .file_loader.file_loader import FileLoader
+from .file_loader import FileLoader
 from .toxic.toxic_model import ToxicModel
 
 import torch
